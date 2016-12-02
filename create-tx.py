@@ -15,16 +15,18 @@ class MainWindow(QWidget):
     def __init__(self, parent=None):
         super(MainWindow, self).__init__(parent)
 
-        address = "1HfXbjexbkBXo9Cv1L4KELKxPFJeRe2a7P"
-        destination = "13FoEfDJFmkp31E8ZHHgeHhY67hA4e1vGB"
+        #送金元アドレス
+        address = "Enter BTC address"
+        #送金先アドレス
+        destination = "Enter BTC address"
 
         self.fromaddress = QLineEdit()
         self.fromaddress.setText(address)
-        self.fromaddress.setReadOnly(True)
+        #self.fromaddress.setReadOnly(True)
 
         self.sendto = QLineEdit()
         self.sendto.setText(destination)
-        self.sendto.setReadOnly(True)
+        #self.sendto.setReadOnly(True)
 
         self.transaction = QTextEdit()
         self.transaction.setReadOnly(True)
@@ -64,6 +66,7 @@ class MainWindow(QWidget):
 
         address = self.fromaddress.text()
         destination = self.sendto.text()
+        #あらかじめ送信元アドレスに対応する秘密鍵を入力しておく
         wif = ""
         sndtx = BlockchainInfoProvider('BTC')
 
